@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">News Search</string>
+    <string name="search_hint">Sports, news....</string>
+    <string name="menu_search">Search here</string>
+</resources>

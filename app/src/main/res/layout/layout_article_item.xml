@@ -1,0 +1,56 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="atrue.newssearch.utils.CommonUtils"/>
+        <variable
+            name="article"
+            type="atrue.newssearch.models.Hits"/>
+        <variable
+            name="handler"
+            type="atrue.newssearch.handler.SourceActionHandler"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:onClick="@{(view) -> handler.showSourceInfo(view, article)}">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="@{article.title}"
+            android:textSize="16dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@{CommonUtils.formatDate(article.createdAt)}"
+            android:textColor="#999999"
+            android:textSize="12dp"
+            android:layout_below="@+id/tv_title"
+            />
+
+        <TextView
+            android:id="@+id/tv_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@{article.url}"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="14dp"
+            android:layout_below="@+id/tv_date"/>
+    </RelativeLayout>
+</layout>
